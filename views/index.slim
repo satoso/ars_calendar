@@ -1,0 +1,22 @@
+ul.pager
+  li.previous: a[href="#{APP}/#{@navs[:prev]}"] < 前月
+  li:          a[href="#{APP}/"] 今月
+  li.next:     a[href="#{APP}/#{@navs[:next]}"] 次月 >
+div[style="overflow-x: auto;"]
+  table.table.table-bordered.table-condensed
+    tr
+      th = @days[0].strftime('%Y/%m')
+      - @days.each do |d|
+        th[colspan="3"]= d.strftime('%d') + '(' + DAY_LETTERS[d.wday] + holiday_mark(d) + ')'
+    tr
+      td
+      - @days.each do
+        - TIME_LETTERS.each do |t|
+          td = t
+    - @members.each do |m|
+      tr
+        td[style="white-space: nowrap;"]
+          a[href="#{APP}/members/#{m[:id]}/schedule/edit/#{@navs[:here]}"] = m[:name]
+        - @days.each do |d|
+          - [0,1,2].each do |t|
+            td.schedule-mark= [*AVAILABILITY_LETTERS, ''][@entries[{date: d, timeslot: t, member_id: m[:id]}] || -1]

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.schedule-mark {
+  font-family: Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
+}
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  background-color: #d9edf7;
+}
+#del-after {
+  display: none;
+}

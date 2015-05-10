@@ -1,0 +1,42 @@
+form[method="POST", action="#{APP}/#{@navs[:here]}"]
+  input[type="hidden" name="member_id" id="member_id" value=(@member[:id])]
+  input[type="hidden" name="next_month" id="next_month" value=(@navs[:next])]
+  p
+    a.btn.btn-sm.btn-link>[href="#{APP}/#{@navs[:here]}"] キャンセル
+    button.btn.btn-sm.btn-success>[name="button" type="submit" value="save"] 保存
+    button.btn.btn-sm.btn-primary[name="button" type="submit" value="save_and_next"] 保存 & 次月 >
+  table.table.table-bordered.table-condensed
+    tr
+      th[rowspan="2"] 日付
+      th[rowspan="2"] 曜日
+      th[rowspan="2"] 時間
+      th[colspan="4"] = @member[:name]
+    tr
+      td#all-0.schedule-mark.clickable: a 全○
+      td#all-1.schedule-mark.clickable: a 全△
+      td#all-2.schedule-mark.clickable: a 全×
+      td#all-3.schedule-mark.clickable: a 全‐
+    - @days.each do |d|
+      - TIME_LETTERS.each_with_index do |t, t_idx|
+        tr
+          - if t_idx.zero?
+            td[rowspan="3"]
+              = d.strftime('%Y')
+              br
+              = d.strftime('%m/%d')
+            td[rowspan="3"] = DAY_LETTERS[d.wday] + holiday_mark(d)
+          td= t
+          - AVAILABILITY_LETTERS.each_with_index do |a, a_idx|
+            td.schedule-mark.clickable.rbtn-container
+              input>[type="radio"
+                    name=(rbtn_name(@member, d, t_idx))
+                    id="#{rbtn_name(@member, d, t_idx)}_#{a_idx}"
+                    value=(a_idx)
+                    checked=(@entries[{date: d, timeslot: t_idx, member_id: @member[:id]}] == a_idx ? "checked" : false)
+                   ]
+              label[for="#{rbtn_name(@member, d, t_idx)}_#{a_idx}"]= a
+
+  p
+    a.btn.btn-sm.btn-link>[href="#{APP}/#{@navs[:here]}"] キャンセル
+    button.btn.btn-sm.btn-success>[name="button" type="submit" value="save"] 保存
+    button.btn.btn-sm.btn-primary[name="button" type="submit" value="save_and_next"] 保存 & 次月 >

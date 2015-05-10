@@ -1,0 +1,17 @@
+form[method="POST", action="#{APP}/members"]
+  table.table.table-bordered
+    tr
+      th 名前
+      th 表示順
+      th 表示対象
+    tr
+      td
+        input.form-control[type="text" name="member_name" id="member_name" autofocus]
+      td
+        input.form-control[type="text" name="member_order" id="member_order" value=@default_order]
+      td
+        input[type="checkbox" name="member_active" id="member_active" checked="checked"]
+  p
+    a.btn.btn-sm.btn-link>[href="#{APP}/members"] キャンセル
+    button.btn.btn-sm.btn-success>[name="button" type="submit" value="save"] 保存
+
