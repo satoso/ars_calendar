@@ -3,7 +3,7 @@ require 'sinatra'
 require 'slim'
 require 'sequel'
 require 'holiday_jp'
-set :slim, pretty: true, sort_attrs: false
+set :slim, pretty: false, sort_attrs: false
 set :logging, false
 
 # uncomment for debug
