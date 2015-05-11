@@ -5,6 +5,13 @@
   font-family: Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
 }
 
+/* 時間帯のセル幅を小さく */
+td.day-dtl-h {
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  text-align: center;
+}
+
 /* 時間帯の区切り線を点線に（横） */
 td.day-dtl-h:nth-child(3n-1) {
   border-right-style: dashed;
