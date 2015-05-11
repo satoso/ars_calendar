@@ -13,30 +13,30 @@ form[method="POST", action="#{APP}/#{@navs[:here]}"]
         th[rowspan="2"] 時間
         th[colspan="4"] = @member[:name]
       tr
-        td#all-0.schedule-mark.clickable: a 全○
-        td#all-1.schedule-mark.clickable: a 全△
-        td#all-2.schedule-mark.clickable: a 全×
-        td#all-3.schedule-mark.clickable: a 全‐
+        td#all-0.scdl.clickable: a 全○
+        td#all-1.scdl.clickable: a 全△
+        td#all-2.scdl.clickable: a 全×
+        td#all-3.scdl.clickable: a 全‐
     tbody
       - @days.each do |d|
         - TIME_LETTERS.each_with_index do |t, t_idx|
-          tr
+          tr.day-dtl-v
             - if t_idx.zero?
               td[rowspan="3"]
                 = d.strftime('%Y')
                 br
                 = d.strftime('%m/%d')
               td[rowspan="3"] = DAY_LETTERS[d.wday] + holiday_mark(d)
-            td= t
+            td = t
             - AVAILABILITY_LETTERS.each_with_index do |a, a_idx|
-              td.schedule-mark.clickable.rbtn-container
+              td.scdl.clickable.rbtn-container
                 input>[type="radio"
                       name=(rbtn_name(@member, d, t_idx))
                       id="#{rbtn_name(@member, d, t_idx)}_#{a_idx}"
                       value=(a_idx)
                       checked=(@entries[{date: d, timeslot: t_idx, member_id: @member[:id]}] == a_idx ? "checked" : false)
                      ]
-                label[for="#{rbtn_name(@member, d, t_idx)}_#{a_idx}"]= a
+                label[for="#{rbtn_name(@member, d, t_idx)}_#{a_idx}"] = a
 
   p
     a.btn.btn-sm.btn-link>[href="#{APP}/#{@navs[:here]}"] キャンセル

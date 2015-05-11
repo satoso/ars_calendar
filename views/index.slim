@@ -13,7 +13,7 @@ ul.pager
         td
         - @days.each do
           - TIME_LETTERS.each do |t|
-            td = t
+            td.day-dtl-h = t
     tbody
       - @members.each do |m|
         tr
@@ -21,13 +21,13 @@ ul.pager
             a[href="#{APP}/members/#{m[:id]}/schedule/edit/#{@navs[:here]}"] = m[:name]
           - @days.each do |d|
             - [0,1,2].each do |t|
-              td.schedule-mark = [*AVAILABILITY_LETTERS, ''][@entries[{date: d, timeslot: t, member_id: m[:id]}] || -1]
+              td.scdl.day-dtl-h = [*AVAILABILITY_LETTERS, ''][@entries[{date: d, timeslot: t, member_id: m[:id]}] || -1]
     tfoot
       tr
         td
         - @days.each do
           - TIME_LETTERS.each do |t|
-            td = t
+            td.day-dtl = t
       tr
         th = @days[0].strftime('%Y/%m')
         - @days.each do |d|

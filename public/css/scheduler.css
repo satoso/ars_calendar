@@ -1,7 +1,34 @@
 @charset "UTF-8";
-.schedule-mark {
+
+/* スケジュール○△×のフォント（小さい記号にならないように） */
+.scdl {
   font-family: Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
 }
+
+/* 時間帯の区切り線を点線に（横） */
+td.day-dtl-h:nth-child(3n-1) {
+  border-right-style: dashed;
+}
+td.day-dtl-h:nth-child(3n) {
+  border-left-style: dashed;
+  border-right-style: dashed;
+}
+td.day-dtl-h:nth-child(3n+1) {
+  border-left-style: dashed;
+}
+
+/* 時間帯の区切り線を点線に（縦） */
+tr.day-dtl-v:nth-child(3n-2) td {
+  border-bottom-style: dashed;
+}
+tr.day-dtl-v:nth-child(3n-1) td {
+  border-top-style: dashed;
+  border-bottom-style: dashed;
+}
+tr.day-dtl-v:nth-child(3n) td {
+  border-top-style: dashed;
+}
+
 .clickable {
   cursor: pointer;
 }
