@@ -1,0 +1,11 @@
+<form method="POST", action="<%= APP %>/members">
+  <table class="table table-bordered">
+    <tr><th>名前</th><th>表示順</th><th>表示対象</th></tr>
+    <tr>
+      <td><input class="form-control" id="member_name" name="member_name" type="text" autofocus></td>
+      <td><input class="form-control" type="text" name="member_order" id="member_order" value="<%= @default_order %>"></td>
+      <td><input id="member_active" name="member_active" type="checkbox" checked></td>
+    </tr>
+  </table>
+  <p><a class="btn btn-sm btn-link" href="<%= APP %>/members">キャンセル</a> <button class="btn btn-sm btn-success" name="button" type="submit" value="save">保存</button></p>
+</form>

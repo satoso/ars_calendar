@@ -1,0 +1,18 @@
+<form id="edit" method="POST" action="<%= APP %>/members/<%= @member[:id] %>">
+  <table class="table table-bordered">
+    <tr><th>名前</th><th>表示順</th><th>表示対象</th></tr>
+    <tr>
+      <td><input type="text" name="member_name" id="member_name" value="<%= @member[:name] %>" autofocus></td>
+      <td><input type="text" name="member_order" id="member_order" value="<%= @member[:order] %>"></td>
+      <td><input type="checkbox" name="member_active" id="member_active" <%= @member[:active] ? 'checked' : '' %>></td>
+    </tr>
+  </table>
+  <p>
+    <a class="btn btn-sm btn-link" href="<%= APP %>/members">キャンセル</a> <button class="btn btn-sm btn-success" name="button" type="submit" value="save">保存</button>
+    <span id="del-before"><a class="btn btn-sm btn-danger" href="#" id="del-before-btn">削除</a></span>
+    <span id="del-after"><a class="btn btn-sm btn-default" href="#" id="del-cancel-btn">キャンセル</a> <button class="btn btn-sm btn-danger" form="delete" name="button" type="submit" value="delete">削除！ </button></span>
+  </p>
+</form>
+<form id="delete" method="POST" action="<%= APP %>/members/<%= @member[:id] %>">
+  <input type="hidden" name="_method" value="DELETE">
+</form>

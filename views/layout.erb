@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= TITLE %><%= @days? @days[0].strftime(' %Y/%m') : '' %></title>
+  <script src="<%= APP %>/js/jquery.min.js"></script>
+  <script src="<%= APP %>/js/bootstrap.min.js"></script>
+  <script src="<%= APP %>/js/calendar.js"></script>
+  <link rel="stylesheet" href="<%= APP %>/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<%= APP %>/css/calendar.css">
+</head>
+<body>
+  <header class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="<%= APP %>/"><%= TITLE %></a> <span class="navbar-brand"><%= @days? @days[0].strftime('%Y/%m') : '' %></span>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="<%= APP %>/">Home</a></li>
+          <li><a href="<%= APP %>/members">Members</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
+</body>
+</html>

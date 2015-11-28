@@ -1,0 +1,7 @@
+<tr>
+  <th><%= @days[0].strftime('%Y/%m') %></th>
+  <% @days.each do |d| %>
+    <th class="text-center text-nowrap" colspan="3"><%= d.strftime('%d') + '/' + DAY_LETTERS[d.wday] + holiday_mark(d) %></th>
+  <% end %>
+  <th><%= @days[0].strftime('%Y/%m') %></th>
+</tr>

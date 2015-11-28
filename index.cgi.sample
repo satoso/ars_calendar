@@ -1,0 +1,11 @@
+#!/xxx/.rbenv/versions/x.x.x/bin/ruby
+# for CGI mode
+$LOAD_PATH.unshift '/xxx/.rbenv/versions/x.x.x/lib'
+ENV['GEM_HOME'] ||= '/xxx/.rbenv/versions/x.x.x/lib/ruby/gems'
+APP ||= '/path/to/app' # アプリのパス; '/path/to/app' or ''(root)
+
+load './calendar.rb'
+
+set :run, false
+set :environment, :cgi
+Rack::Handler::CGI.run Sinatra::Application

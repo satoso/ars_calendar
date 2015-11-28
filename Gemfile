@@ -4,13 +4,11 @@ source "http://rubygems.org"
 gem "sinatra"
 gem "sequel"
 gem "sqlite3"
-gem "slim"
 gem "holiday_jp"
 
 group :development, :test do
   gem "thin"
   gem "pry"
-  gem "html2slim"
   gem "sinatra-contrib"
 end
 

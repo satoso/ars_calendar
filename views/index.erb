@@ -1,0 +1,25 @@
+<%= erb :index_pager, :layout => false %>
+<div class="table-responsive">
+<table class="table table-bordered table-striped table-condensed">
+  <thead>
+    <%= erb :index_trdays, :layout => false %>
+    <%= erb :index_trtimes, :layout => false %>
+  </thead>
+  <tbody>
+    <% @members.each do |m| %>
+      <tr>
+        <td class="text-nowrap"><a href="<%= APP %>/members/<%= m[:id] %>/schedule/edit/<%= @navs[:here] %>"><%= m[:name] %></a></td>
+        <% @days.each do |d| %>
+          <% [0,1,2].each do |t| %><td class="scdl day-dtl-h"><%= [*AVAILABILITY_LETTERS, ''][@entries[{date: d, timeslot: t, member_id: m[:id]}] || -1] %></td><% end %>
+        <% end %>
+        <td class="text-nowrap"><a href="<%= APP %>/members/<%= m[:id] %>/schedule/edit/<%= @navs[:here] %>"><%= m[:name] %></a></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <%= erb :index_trtimes, :layout => false %>
+    <%= erb :index_trdays, :layout => false %>
+  </tfoot>
+</table>
+</div>
+<%= erb :index_pager, :layout => false %>

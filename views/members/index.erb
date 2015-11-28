@@ -1,0 +1,11 @@
+<table class="table table-bordered">
+  <tr><th>名前</th><th>表示順</th><th>表示対象</th></tr>
+  <% @members.each do |m| %>
+    <tr>
+      <td><a href="<%= APP %>/members/<%= m[:id] %>/edit"><%= m[:name] %></a></td>
+      <td><%= m[:order] %></td>
+      <td><input type="checkbox" <%= m[:active] ? 'checked' : '' %> disabled></td>
+    </tr>
+  <% end %>
+</table>
+<p><a class="btn btn-sm btn-primary" href="<%= APP %>/members/new">新規</a></p>

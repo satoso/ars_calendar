@@ -1,1 +1,1 @@
-予定調整カレンダー for ARS Brass Ensemble
+予定調整カレンダー
