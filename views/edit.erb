@@ -1,4 +1,4 @@
-<form method="POST", action="<%= APP %>/<%= @navs[:here] %>">
+<form method="POST" action="<%= APP %>/<%= @navs[:here] %>" class="edit-form">
   <input type="hidden" id="member_id" name="member_id" value="<%= @member[:id] %>">
   <input type="hidden" id="next_month" name="next_month" value="<%= @navs[:next] %>">
   <%= erb :edit_buttons, :layout => false %>
@@ -11,7 +11,7 @@
       <% @days.each do |d| %>
       <% TIME_LETTERS.each_with_index do |t, t_idx| %>
         <tr class="day-dtl-v">
-          <% if t_idx.zero? %><td rowspan="3"><%= d.strftime('%Y') %><br><%= d.strftime('%m/%d') %></td><td rowspan="3"><%= DAY_LETTERS[d.wday] + holiday_mark(d) %></td><% end %>
+          <% if t_idx.zero? %><td rowspan="3" class="rowtitle"><%= d.strftime('%Y') %><br><%= d.strftime('%m/%d') %></td><td rowspan="3" class="rowtitle"><%= DAY_LETTERS[d.wday] + holiday_mark(d) %></td><% end %>
           <td><%= t %></td>
           <% AVAILABILITY_LETTERS.each_with_index do |a, a_idx| %>
             <td class="scdl clickable rbtn-container text-nowrap"><input type="radio" name="<%= rbtn_name(@member, d, t_idx) %>" id="<%= rbtn_name(@member, d, t_idx) %>_<%= a_idx %>" value="<%= a_idx %>" <%= @entries[{date: d, timeslot: t_idx, member_id: @member[:id]}] == a_idx ? 'checked' : '' %>><label for="<%= rbtn_name(@member, d, t_idx) %>_<%= a_idx %>"><%= a %></label></td>

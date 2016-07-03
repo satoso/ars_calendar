@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+.edit-form {
+  max-width: 30em;
+  margin: 0 auto;
+}
+.rowtitle {
+  font-weight: bold;
+}
+
 /* スケジュール○△×のフォント（小さい記号にならないように） */
 .scdl {
   font-family: Osaka,"ＭＳ Ｐゴシック","MS PGothic",Sans-Serif;
