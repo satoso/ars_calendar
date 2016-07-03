@@ -9,8 +9,11 @@
 }
 .center-block {
   display: block;
-  margin-left: auto;
-  margin-right: auto;  
+  margin: 0 auto;
+  text-align: center;
+}
+.pagination {
+  margin-top: 0.4em;
 }
 
 /* スケジュール○△×のフォント（小さい記号にならないように） */

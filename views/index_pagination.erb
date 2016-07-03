@@ -1,9 +1,11 @@
-<nav class="center-block">
-  <ul class="pagination pagination-sm">
-    <li class="page-item"><a href="<%= APP %>/<%= @days[0].year - 1 %>12" class="page-link">&laquo; <%= @days[0].year - 1 %>/12</a></li>
-    <% [*('01'..'12')].each do |m| %>
-      <li class="page-item <%= "#{@days[0].year}#{m}" == @days[0].strftime('%Y%m') ? 'active' : '' %>"><a href="<%= APP %>/<%= @days[0].year %><%= m %>" class="page-link"><%= m == '01' ? "#{@days[0].year}/" : '' %><%= m %></a></li>
-    <% end %>
-    <li class="page-item"><a href="<%= APP %>/<%= @days[0].year + 1 %>01" class="page-link"><%= @days[0].year + 1 %>/01 &raquo;</a></li>
-  </ul>
+<nav>
+  <div class="center-block">
+    <ul class="pagination pagination-sm">
+      <li class="page-item"><a href="<%= APP %>/<%= @days[0].year - 1 %>12" class="page-link">&laquo; <%= @days[0].year - 1 %>/12</a></li>
+      <% [*('01'..'12')].each do |m| %>
+        <li class="page-item <%= "#{@days[0].year}#{m}" == @days[0].strftime('%Y%m') ? 'active' : '' %>"><a href="<%= APP %>/<%= @days[0].year %><%= m %>" class="page-link"><%= m == '01' ? "#{@days[0].year}/" : '' %><%= m %></a></li>
+      <% end %>
+      <li class="page-item"><a href="<%= APP %>/<%= @days[0].year + 1 %>01" class="page-link"><%= @days[0].year + 1 %>/01 &raquo;</a></li>
+    </ul>
+  </div>
 </nav>
