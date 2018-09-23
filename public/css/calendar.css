@@ -61,3 +61,13 @@ tr.day-dtl-v:nth-child(3n) td {
 #del-after {
   display: none;
 }
+
+/* 印刷時にURLを出さない */
+@media print {
+  a[href]:after {
+    content: "" !important;
+  }
+  abbr[title]:after {
+    content: "" !important;
+  }
+}
