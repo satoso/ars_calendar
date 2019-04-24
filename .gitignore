@@ -1,6 +1,5 @@
 .sass-cache
 *.swp
-Gemfile.lock
 /vendor/bundle
 .bundle
 /.htaccess
