@@ -21,8 +21,9 @@ end
 #   $ cd sqlite-autoconf-3081001
 #   $ ./configure --prefix=$HOME/local
 #   $ make && make install
-# - install sqlite3 as follows:
-#   $ gem install sqlite3 -- --with-opt-dir=$HOME/local
+# - bundle install as follows:
+#   $ bundle config --local build.sqlite3 --with-opt-dir=$HOME/local
+#   $ bundle install
 #
 # see: http://d.hatena.ne.jp/lettas0726/20090820/1250779080
 # see: http://d.hatena.ne.jp/aTaGo/20100708/1278608962
